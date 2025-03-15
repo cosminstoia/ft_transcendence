@@ -13,21 +13,28 @@
     />
   </head>
   <body>
-    <nav class="navbar">
-      <div class="navbar__container">
-        <a href="/" id="navbar__logo">Pong Game</a>
+    <nav class="header">
+      <div class="header__container">
+        <a href="/" id="header__logo">Pong Game</a>
       </div>
     </nav>
-    <!-- Hero Section -->
-    <div class="main">
-      <div class="main__container">
-        <div class="main__content">
-          <h1>Username</h1>
-          <h2>Password</h2>
-          <button class="main__btn"><a href="/">Play</a></button>
-        </div>
-        </div>
+    <!-- Body Section -->
+     <div class="game">
+       <div class="game__container">
+         <div class="score">0 &nbsp; 0</div>
+         <div class="paddle paddle__left"></div>
+         <div class="paddle paddle__right"></div>
+         <div class="middle__line"></div>
+         <div class="ball"></div>
+         <div class="login__container">
+           <input type="text" placeholder="USERNAME">
+           <input type="password" placeholder="PASSWORD">
+           <button class="play__button"><a href="/">PLAY</a></button>
+          </div>
       </div>
     </div>
+  </div>
+  <!-- Footer Section -->
+    <!-- <script src="app.ts"></script> -->
   </body>
 </html>
