@@ -69,6 +69,7 @@
     width: 10px;
     height: 80px;
     position: absolute;
+    border-radius: 15px;
 }
 
 .paddle__left {
@@ -193,4 +194,63 @@
 .button:hover {
     background: #b8b6d0;
     transition: all 0.3s ease;
+}
+
+/* Footer Section CSS */
+
+.footer {
+    display: flex;
+    justify-content: space-around;
+    background-color: #131313;
+    color: #fff;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 250px;
+}
+  
+.footer__section {
+    background-color: #777777;
+    padding: 15px;
+    border-radius: 8px;
+    width: 32%;
+    overflow-y: auto;
+    max-height: 200px;
+}
+  
+h1 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ff8177;
+}
+
+.friends__list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+  
+.add {
+    font-weight: bold;
+    color: #ff8177;
+}
+
+.footer__section input[type="chatbar"] {
+    background-color: #2f2f2f;
+    color: rgba(255, 255, 255, 1);
+    padding: 5px 10px;
+    border-radius: 2px;
+    position: fixed;
+    left: 0;
+    bottom: 40px;
+    margin-left: 40px;
+    box-sizing: border-box;
+    text-align: left;
+    outline: none;
+    border-radius: 8px;
+    width: 410px;
+    font-size: 1rem;
 }
