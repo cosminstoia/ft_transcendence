@@ -90,7 +90,7 @@ function updateGame() {
   scoreDisplay.textContent = `${leftScore}  ${rightScore}`;
 
   if (isSinglePlayer) {
-    rightPaddleY = ballY - paddleHeight / 2; // AI follows the ball
+    rightPaddleY = Math.max(Math.min(ballY - paddleHeight / 2, 450), 40);
   }
 
   paddleLeft.style.top = `${leftPaddleY}px`;
@@ -100,16 +100,16 @@ function updateGame() {
 function movePaddles(event: KeyboardEvent) {
   switch (event.key) {
     case 'w':
-      leftPaddleY = Math.max(leftPaddleY - paddleSpeed, 0);
+      leftPaddleY = Math.max(leftPaddleY - paddleSpeed, 40);
       break;
     case 's':
-      leftPaddleY = Math.min(leftPaddleY + paddleSpeed, 420);
+      leftPaddleY = Math.min(leftPaddleY + paddleSpeed, 450);
       break;
     case 'ArrowUp':
-      rightPaddleY = Math.max(rightPaddleY - paddleSpeed, 0);
+      rightPaddleY = Math.max(rightPaddleY - paddleSpeed, 40);
       break;
     case 'ArrowDown':
-      rightPaddleY = Math.min(rightPaddleY + paddleSpeed, 420);
+      rightPaddleY = Math.min(rightPaddleY + paddleSpeed, 450);
       break;
   }
 }
