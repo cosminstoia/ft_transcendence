@@ -4,7 +4,7 @@
     padding: 0;
     font-family: 'Luckiest Guy', sans-serif;
 }
-
+  
 /* Header Section CSS */
 
 .header  {
@@ -137,6 +137,36 @@
   -moz-text-fill-color: transparent;
   padding: 10px 20px;
   width: 300px;
+}
+
+#modeContainer #singleplayerButton,
+#modeContainer #multiplayerButton {
+    gap: 20px;
+    align-items: center;
+    margin-top: 70px;
+    margin-left: 250px;
+    flex-direction: column;
+    display: flex;
+    font-size: 2rem;
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: 8px;
+    outline: none;
+    text-align: center;
+    background-image: linear-gradient(to top, #b721ff 0%, #f15656 100%);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    padding: 10px 20px;
+    width: 300px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+  }
+
+#singleplayerButton:hover,
+#multiplayerButton:hover {
+  transform: scale(1.1);
 }
 
 .play__button {

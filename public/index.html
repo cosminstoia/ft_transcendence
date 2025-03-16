@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ft_transcendence</title>
+    <link rel="stylesheet" href="/src/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="header">
+      <div class="header__container">
+        <a href="/" id="header__logo">Pong Game</a>
+      </div>
+    </nav>
+    <!-- Body Section -->
+    <div class="game">
+      <div class="game__container">
+        <div class="score">0 &nbsp; 0</div>
+        <div class="paddle paddle__left"></div>
+        <div class="paddle paddle__right"></div>
+        <div class="middle__line"></div>
+        <div class="ball"></div>
+        
+        <!-- Login Container -->
+        <div class="login__container">
+          <input type="text" id="username" placeholder="USERNAME" />
+          <input type="password" id="password" placeholder="PASSWORD" />
+          <button class="play__button" id="playButton" disabled>PLAY</button>
+        </div>
+
+        <!-- Game Mode Selection -->
+        <div class="mode__container" id="modeContainer" style="display: none;">
+          <button id="singleplayerButton">Singleplayer</button>
+          <button id="multiplayerButton">Multiplayer</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+      <div class="footer__section">
+        <h1>CHAT</h1>
+        <input type="chatbar" placeholder="TEXT" />
+      </div>
+      <div class="footer__section">
+        <h1 class="friends__list"> FRIENDS LIST <span class="add">ADD +</span></h1>      
+      </div>
+      <div class="footer__section">
+        <h1>RANKING</h1>
+      </div>
+    </footer>
+
+    <script src="/dist/game.js" defer></script>
+  </body>
+</html>
