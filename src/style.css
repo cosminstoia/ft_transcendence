@@ -75,15 +75,11 @@
 .paddle__left {
     background-color: blue;
     left: 10px;
-    top: 50%;
-    transform: translateY(-50%);
 }
 
 .paddle__right {
     background-color: red;
     right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
 }
 
 .middle__line {

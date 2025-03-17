@@ -15,8 +15,8 @@ let ballX = 400;
 let ballY = 250;
 let ballSpeedX = 4;
 let ballSpeedY = 4;
-let leftPaddleY = 210;
-let rightPaddleY = 210;
+let leftPaddleY = 0;
+let rightPaddleY = 200;
 const paddleSpeed = 10;
 const paddleHeight = 80;
 let leftScore = 0;
@@ -50,10 +50,10 @@ function startGame() {
 function updateGame() {
     ballX += ballSpeedX;
     ballY += ballSpeedY;
-    if (ballY <= 0 || ballY >= 500) {
+    if (ballY <= 0 || ballY >= 480) {
         ballSpeedY *= -1;
     }
-    if (ballX <= 20 && ballY >= leftPaddleY && ballY <= leftPaddleY + paddleHeight) {
+    if (ballX <= 30 && ballY >= leftPaddleY && ballY <= leftPaddleY + paddleHeight) {
         ballSpeedX *= -1;
     }
     if (ballX >= 780 && ballY >= rightPaddleY && ballY <= rightPaddleY + paddleHeight) {
@@ -71,7 +71,7 @@ function updateGame() {
     ball.style.top = `${ballY}px`;
     scoreDisplay.textContent = `${leftScore}  ${rightScore}`;
     if (isSinglePlayer) {
-        rightPaddleY = Math.max(Math.min(ballY - paddleHeight / 2, 450), 40);
+        rightPaddleY = Math.max(Math.min(ballY - paddleHeight / 2, 400), 0);
     }
     paddleLeft.style.top = `${leftPaddleY}px`;
     paddleRight.style.top = `${rightPaddleY}px`;
@@ -79,16 +79,16 @@ function updateGame() {
 function movePaddles(event) {
     switch (event.key) {
         case 'w':
-            leftPaddleY = Math.max(leftPaddleY - paddleSpeed, 40);
+            leftPaddleY = Math.max(leftPaddleY - paddleSpeed, 0);
             break;
         case 's':
-            leftPaddleY = Math.min(leftPaddleY + paddleSpeed, 450);
+            leftPaddleY = Math.min(leftPaddleY + paddleSpeed, 400);
             break;
         case 'ArrowUp':
-            rightPaddleY = Math.max(rightPaddleY - paddleSpeed, 40);
+            rightPaddleY = Math.max(rightPaddleY - paddleSpeed, 0);
             break;
         case 'ArrowDown':
-            rightPaddleY = Math.min(rightPaddleY + paddleSpeed, 450);
+            rightPaddleY = Math.min(rightPaddleY + paddleSpeed, 400);
             break;
     }
 }
