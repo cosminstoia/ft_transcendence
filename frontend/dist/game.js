@@ -95,5 +95,5 @@ function movePaddles(event) {
 function resetBall() {
     ballX = 400;
     ballY = 250;
-    ballSpeedX *= -1; // Reverse direction after each score
+    ballSpeedX *= -1;
 }
