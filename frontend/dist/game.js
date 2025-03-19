@@ -11,12 +11,14 @@ const ball = document.querySelector('.ball');
 const paddleLeft = document.querySelector('.paddle__left');
 const paddleRight = document.querySelector('.paddle__right');
 const scoreDisplay = document.querySelector('.score');
+// Starting Ball Position
 let ballX = 400;
 let ballY = 250;
-let ballSpeedX = 4;
-let ballSpeedY = 4;
+let ballSpeedX = 4; // 4px/fram
+let ballSpeedY = 4; // 4px/fram
+// Starting Paddle Position
 let leftPaddleY = 0;
-let rightPaddleY = 200;
+let rightPaddleY = 0;
 const paddleSpeed = 10;
 const paddleHeight = 80;
 let leftScore = 0;
@@ -45,19 +47,31 @@ multiplayerButton.addEventListener('click', () => {
 function startGame() {
     modeContainer.style.display = 'none';
     setInterval(updateGame, 16); // Runs the game at 60 FPS
-    window.addEventListener('keydown', movePaddles);
 }
+const keyState = {};
+window.addEventListener('keydown', (event) => {
+    keyState[event.key] = true;
+});
+window.addEventListener('keyup', (event) => {
+    keyState[event.key] = false;
+});
 function updateGame() {
     ballX += ballSpeedX;
     ballY += ballSpeedY;
-    if (ballY <= 0 || ballY >= 480) {
+    if (ballY <= 10 || ballY >= 480) {
         ballSpeedY *= -1;
     }
-    if (ballX <= 30 && ballY >= leftPaddleY && ballY <= leftPaddleY + paddleHeight) {
-        ballSpeedX *= -1;
+    if (ballX <= 30) {
+        if (ballY + 10 >= leftPaddleY && ballY <= leftPaddleY + paddleHeight) {
+            ballSpeedX *= -1;
+            ballX = 31; /* Adjust ball position to prevent tunneling */
+        }
     }
-    if (ballX >= 780 && ballY >= rightPaddleY && ballY <= rightPaddleY + paddleHeight) {
-        ballSpeedX *= -1;
+    if (ballX >= 760) {
+        if (ballY + 10 >= rightPaddleY && ballY <= rightPaddleY + paddleHeight) {
+            ballSpeedX *= -1;
+            ballX = 759; /* Adjust ball position to prevent tunneling */
+        }
     }
     if (ballX <= 0) {
         rightScore++;
@@ -67,30 +81,27 @@ function updateGame() {
         leftScore++;
         resetBall();
     }
+    if (keyState['w']) {
+        leftPaddleY = Math.max(leftPaddleY - paddleSpeed, 0);
+    }
+    if (keyState['s']) {
+        leftPaddleY = Math.min(leftPaddleY + paddleSpeed, 410);
+    }
+    if (keyState['ArrowUp']) {
+        rightPaddleY = Math.max(rightPaddleY - paddleSpeed, 0);
+    }
+    if (keyState['ArrowDown']) {
+        rightPaddleY = Math.min(rightPaddleY + paddleSpeed, 410);
+    }
+    // Update UI
     ball.style.left = `${ballX}px`;
     ball.style.top = `${ballY}px`;
     scoreDisplay.textContent = `${leftScore}  ${rightScore}`;
     if (isSinglePlayer) {
-        rightPaddleY = Math.max(Math.min(ballY - paddleHeight / 2, 400), 0);
+        rightPaddleY = Math.max(Math.min(ballY - paddleHeight / 2, 410), 0);
     }
     paddleLeft.style.top = `${leftPaddleY}px`;
     paddleRight.style.top = `${rightPaddleY}px`;
-}
-function movePaddles(event) {
-    switch (event.key) {
-        case 'w':
-            leftPaddleY = Math.max(leftPaddleY - paddleSpeed, 0);
-            break;
-        case 's':
-            leftPaddleY = Math.min(leftPaddleY + paddleSpeed, 400);
-            break;
-        case 'ArrowUp':
-            rightPaddleY = Math.max(rightPaddleY - paddleSpeed, 0);
-            break;
-        case 'ArrowDown':
-            rightPaddleY = Math.min(rightPaddleY + paddleSpeed, 400);
-            break;
-    }
 }
 function resetBall() {
     ballX = 400;

@@ -2,9 +2,7 @@
     "compilerOptions": {
       "target": "ESNext",
       "module": "ESNext",
-      "jsx": "react-jsx",
       "strict": true,
-      "moduleResolution": "node",
       "outDir": "./dist"
     },
     "include": ["src"],

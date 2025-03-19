@@ -31,13 +31,12 @@
 }
 
 #header__logo {
-    background-color: #ff8177;
-    background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
-    background-size: 100%;
+    background-image: linear-gradient(to top, #b721ff 0%, #f15656 100%);
     -webkit-background-clip: text;
     -moz-background-clip: text;
     -webkit-text-fill-color: transparent;
     -moz-text-fill-color: transparent;
+    background-size: 100%;
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -71,7 +70,7 @@
 }
 
 .game * {
-    /* position: relative; */
+    position: relative;
     z-index: 2; /* Ensures content stays above overlay */
 }
 
@@ -276,7 +275,11 @@
 h1 {
     font-size: 1.2rem;
     font-weight: bold;
-    color: #ff8177;
+    background-image: linear-gradient(to top, #b721ff 0%, #f15656 100%);
+    -webkit-background-clip: text;
+    border-color: #131313;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 1px;
 }
 
 .friends__list {
@@ -288,7 +291,8 @@ h1 {
   
 .add {
     font-weight: bold;
-    color: #ff8177;
+    background-image: linear-gradient(to top, #b721ff 0%, #f15656 100%);
+    -webkit-background-clip: text;
 }
 
 .footer__section input[type="chatbar"] {

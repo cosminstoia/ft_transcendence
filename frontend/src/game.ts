@@ -108,13 +108,13 @@ function updateGame() {
     leftPaddleY = Math.max(leftPaddleY - paddleSpeed, 0);
   }
   if (keyState['s']) {
-    leftPaddleY = Math.min(leftPaddleY + paddleSpeed, 400);
+    leftPaddleY = Math.min(leftPaddleY + paddleSpeed, 410);
   }
   if (keyState['ArrowUp']) {
     rightPaddleY = Math.max(rightPaddleY - paddleSpeed, 0);
   }
   if (keyState['ArrowDown']) {
-    rightPaddleY = Math.min(rightPaddleY + paddleSpeed, 400);
+    rightPaddleY = Math.min(rightPaddleY + paddleSpeed, 410);
   }
 
   // Update UI
@@ -123,7 +123,7 @@ function updateGame() {
   scoreDisplay.textContent = `${leftScore}  ${rightScore}`;
 
   if (isSinglePlayer) {
-    rightPaddleY = Math.max(Math.min(ballY - paddleHeight / 2, 400), 0);
+    rightPaddleY = Math.max(Math.min(ballY - paddleHeight / 2, 410), 0);
   }
 
   paddleLeft.style.top = `${leftPaddleY}px`;
