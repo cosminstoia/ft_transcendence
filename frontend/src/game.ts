@@ -75,17 +75,23 @@ function updateGame() {
   ballX += ballSpeedX;
   ballY += ballSpeedY;
 
-  if (ballY <= 0 || ballY >= 480) {
+
+  if (ballY <= 10 || ballY >= 480) {
     ballSpeedY *= -1;
   }
 
-  if (ballX <= 30 && ballY >= leftPaddleY && ballY <= leftPaddleY + paddleHeight) {
-    ballSpeedX *= -1;
+  if (ballX <= 30) {
+    if (ballY + 10 >= leftPaddleY && ballY <= leftPaddleY + paddleHeight) {
+      ballSpeedX *= -1;
+      ballX = 31; /* Adjust ball position to prevent tunneling */
+    }
   }
   
-
-  if (ballX >= 760 && ballY >= rightPaddleY && ballY <= rightPaddleY + paddleHeight) {
-    ballSpeedX *= -1;
+  if (ballX >= 760) {
+    if (ballY + 10 >= rightPaddleY && ballY <= rightPaddleY + paddleHeight) {
+      ballSpeedX *= -1;
+      ballX = 759; /* Adjust ball position to prevent tunneling */
+    }
   }
 
   if (ballX <= 0) {
@@ -123,23 +129,6 @@ function updateGame() {
   paddleLeft.style.top = `${leftPaddleY}px`;
   paddleRight.style.top = `${rightPaddleY}px`;
 }
-
-// function movePaddles(event: KeyboardEvent) {
-//   switch (event.key) {
-//     case 'w':
-//       leftPaddleY = Math.max(leftPaddleY - paddleSpeed, 0);
-//       break;
-//     case 's':
-//       leftPaddleY = Math.min(leftPaddleY + paddleSpeed, 400);
-//       break;
-//     case 'ArrowUp':
-//       rightPaddleY = Math.max(rightPaddleY - paddleSpeed, 0);
-//       break;
-//     case 'ArrowDown':
-//       rightPaddleY = Math.min(rightPaddleY + paddleSpeed, 400);
-//       break;
-//   }
-// }
 
 function resetBall() {
   ballX = 400;
